@@ -1,38 +1,60 @@
-# sv
+# svelte5-single-page-application
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+このリポジトリーは、技術書典17「[いまからはじめる Svelte5](https://techbookfest.org/product/4925576424980480?productVariantID=5094401858600960)」付録のサンプルコードです。
 
-## Creating a project
+* サイト全体にCSSを適用する
+* Web APIを使う
+* コンポーネントにアクションを取り付ける
+* Vitestでユニットテストを実行する
+* Storybookでコンポーネントテストを実行する
+* Lintツールで静的解析する
 
-If you're seeing this, you've probably already done this step. Congrats!
+![サンプルアプリケーション](doc/app.png)
+
+## サンプルコードの試しかた
+
+リポジトリーをクローンしたら、npmパッケージをインストールします。
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+cd svelte5-single-page-application
+npm ci
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+そして、[Vite](https://vite.dev/)のモジュール・バンドル処理を実行し...
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+ウェブブラウザーで[localhost:5173](http://localhost:5173)にアクセスします。
 
-To create a production version of your app:
+## 開発環境
+
+* [Svelte](https://svelte.dev) v5.x
+* [svelte-check](https://www.npmjs.com/package/svelte-check) v4.x
+* [Biome](https://biomejs.dev/ja/) v1.x
+* [TypeScript](https://www.typescriptlang.org/) v5.x
+* [Vitest](https://vitest.dev/) v2.x
+* [Vite](https://vite.dev) v5.x
+* [Tailwind CSS](https://tailwindcss.com/) v3.x
+
+## 開発の進めかた
+
+コードを書き換えたら、Lintツール（svelte-check・Biome）で静的解析します。
 
 ```bash
-npm run build
+npm run validate
+npm run lint
 ```
 
-You can preview the production build with `npm run preview`.
+もしBiomeがエラーを報告したら...
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+npm run fix
+```
+
+エラーを解消できたら、ユニットテスト（Vitest）を実行します。
+
+```bash
+npm run test
+```

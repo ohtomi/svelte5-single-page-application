@@ -7,7 +7,7 @@ type ListPageNumbersReturn = {
 export const listPageNumbers = (
 	currentPage: number,
 	lastPage: number,
-	pagingSize: number = 10,
+	pagingSize = 10,
 ): ListPageNumbersReturn => {
 	if (lastPage <= pagingSize) {
 		/**

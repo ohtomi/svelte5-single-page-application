@@ -1,4 +1,4 @@
-import { Result } from 'neverthrow';
+import type { Result } from 'neverthrow';
 
 type Underscore<P extends string> = `__${P}`;
 

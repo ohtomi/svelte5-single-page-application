@@ -1,4 +1,10 @@
-import { err, fromPromise, ok, Result, ResultAsync } from 'neverthrow';
+import {
+	err,
+	fromPromise,
+	ok,
+	type Result,
+	type ResultAsync,
+} from 'neverthrow';
 import { request } from '@octokit/request';
 
 import {
@@ -8,7 +14,7 @@ import {
 	listAllElements,
 } from '$lib/values';
 import {
-	SearchRepositoriesApiError,
+	type SearchRepositoriesApiError,
 	toSearchRepositoriesApiError,
 	ValidationError,
 } from '$lib/errors';

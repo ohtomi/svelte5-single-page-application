@@ -9,6 +9,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "biome:format": "npx @biomejs/biome format --write src",
+    "biome:lint": "npx @biomejs/biome lint src",
+    "biome:lint:autofix": "npx @biomejs/biome lint --write src",
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run",
     "storybook": "storybook dev -p 6006",

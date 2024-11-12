@@ -1,8 +1,8 @@
 <script lang="ts" module>
-    export type SearcherProps = {
-        q: string;
-        onclick: (q: string) => void;
-    };
+export type SearcherProps = {
+	q: string;
+	onclick: (q: string) => void;
+};
 </script>
 
 <script lang="ts">

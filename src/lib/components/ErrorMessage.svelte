@@ -1,9 +1,9 @@
 <script lang="ts">
-    type Props = {
-        cause: string;
-    };
+type Props = {
+	cause: string;
+};
 
-    let {cause}: Props = $props();
+let { cause }: Props = $props();
 </script>
 
 <div>

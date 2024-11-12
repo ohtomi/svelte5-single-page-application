@@ -1,8 +1,8 @@
 <script>
-    import './page.css';
-    import Header from './Header.svelte';
+import './page.css';
+import Header from './Header.svelte';
 
-    let user = $state(null);
+let user = $state(null);
 </script>
 
 <article>

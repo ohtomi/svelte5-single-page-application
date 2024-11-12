@@ -1,12 +1,12 @@
 <script lang="ts" module>
-    import type {UnArray, UnResultOk} from '$lib/values';
-    import type {searchRepositories} from '$lib/github';
+import type { UnArray, UnResultOk } from '$lib/values';
+import type { searchRepositories } from '$lib/github';
 
-    type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
+type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
 
-    export type RepositorySummaryProps = {
-        repository: UnArray<Value['repositories']>;
-    };
+export type RepositorySummaryProps = {
+	repository: UnArray<Value['repositories']>;
+};
 </script>
 
 <script lang="ts">

@@ -3,9 +3,9 @@
 </svelte:head>
 
 <script lang="ts">
-    import '../app.css';
+import '../app.css';
 
-    let {children} = $props();
+let { children } = $props();
 </script>
 
 <div class="bg-white p-4 dark:bg-gray-800">

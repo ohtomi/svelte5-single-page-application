@@ -1,13 +1,13 @@
 <script lang="ts" module>
-    import type {UnResultOk} from '$lib/values';
-    import type {searchRepositories} from '$lib/github';
+import type { UnResultOk } from '$lib/values';
+import type { searchRepositories } from '$lib/github';
 
-    type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
+type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
 
-    export type PaginationProps = {
-        totalCount: Value['totalCount'];
-        options: Value['options'];
-    };
+export type PaginationProps = {
+	totalCount: Value['totalCount'];
+	options: Value['options'];
+};
 </script>
 
 <script lang="ts">

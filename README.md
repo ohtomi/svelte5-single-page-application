@@ -43,14 +43,14 @@ npm run dev
 コードを書き換えたら、Lintツール（svelte-check・Biome）で静的解析します。
 
 ```bash
-npm run validate
-npm run lint
+npm run check
+npm run biome:lint
 ```
 
 もしBiomeがエラーを報告したら...
 
 ```bash
-npm run fix
+npm run biome:lint:autofix
 ```
 
 エラーを解消できたら、ユニットテスト（Vitest）を実行します。

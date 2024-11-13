@@ -32,7 +32,9 @@ export const listAllElements =
 	) =>
 		elements;
 
-export const joinAllElements = (elements: (string | undefined)[]): string => {
+export const joinAllElements = (
+	elements: readonly (string | undefined)[],
+): string => {
 	return elements
 		.filter((value) => value)
 		.map((value) => `"${value}"`)

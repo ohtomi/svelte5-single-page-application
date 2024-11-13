@@ -24,6 +24,7 @@ export const listPageNumbers = (
 			next: toNext(currentPage, lastPage),
 			pages: Array.from({ length: lastPage }).map((_, i) => i + 1),
 		};
+		// biome-ignore lint/style/noUselessElse: ifブロックとelseブロックの対称性を保ちたいので、据え置きにする
 	} else {
 		/**
 		 * 可能であれば current が pages の中央に位置するように current の左側に pages を積む

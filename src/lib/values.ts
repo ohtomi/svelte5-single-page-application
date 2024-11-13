@@ -8,6 +8,7 @@ type Underscored<T extends string> = {
 
 export type Brand<Type, Name extends string> = Type & Underscored<Name>;
 
+// biome-ignore lint/suspicious/noRedeclare: 型推論の引数なので、このままでもよいはず
 export type UnArray<T> = T extends Array<infer A> | ReadonlyArray<infer A>
 	? A
 	: never;

@@ -111,7 +111,7 @@ describe('ExistingValueOf<>', () => {
 	});
 });
 
-describe('listAllElements()', () => {
+describe('listAllElements()()', () => {
 	test.each([
 		{
 			stringUnion: ['key-a', 'key-b', 'key-c'],

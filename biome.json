@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["*.svelte"]
+		"ignore": []
 	},
 	"formatter": {
 		"enabled": true,
@@ -20,7 +20,8 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		}
+		},
+		"ignore": ["*.svelte"]
 	},
 	"javascript": {
 		"formatter": {

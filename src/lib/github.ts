@@ -173,7 +173,6 @@ export const searchRepositories = (
 		);
 		const options = { q, sort, order, per_page, page };
 
-		console.warn(options);
 		return ok({
 			totalCount,
 			repositories,

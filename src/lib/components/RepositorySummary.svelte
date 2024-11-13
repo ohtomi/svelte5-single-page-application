@@ -10,6 +10,7 @@ export type RepositorySummaryProps = {
 </script>
 
 <script lang="ts">
+    import type {Component} from 'svelte';
     import EyeIcon from '$lib/icons/EyeIcon.svelte';
     import ForkIcon from '$lib/icons/ForkIcon.svelte';
     import StarIcon from '$lib/icons/StarIcon.svelte';
@@ -19,7 +20,7 @@ export type RepositorySummaryProps = {
 </script>
 
 <div class="max-w-screen-md p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    {#snippet labelWithIcon(count, Icon)}
+    {#snippet labelWithIcon(count: number, Icon: Component)}
         <span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded me-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500">
             <Icon/>
             {count}
@@ -45,7 +46,7 @@ export type RepositorySummaryProps = {
     <div>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{repository.description}</p>
     </div>
-    {#snippet externalLink(href, label)}
+    {#snippet externalLink(href: string, label: string)}
         <a {href} target="_blank" class="inline-flex font-medium items-center text-blue-600 hover:underline me-2">
             {label}
             <ExternalLinkIcon/>

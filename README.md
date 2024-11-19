@@ -1,3 +1,5 @@
+[![CI](https://github.com/ohtomi/svelte5-single-page-application/actions/workflows/ci.yml/badge.svg)](https://github.com/ohtomi/svelte5-single-page-application/actions/workflows/ci.yml)
+
 # svelte5-single-page-application
 
 このリポジトリーは、技術書典17「[いまからはじめる Svelte 5](https://techbookfest.org/product/geNC4S5LANeb94wrP9uYd7?productVariantID=7eSJuv79asBgtNQ1A6MVqe)」付録のサンプルコードです。

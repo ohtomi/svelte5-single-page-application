@@ -7,7 +7,7 @@ export type SearcherProps = {
 
 <script lang="ts">
     import {autoSubmit} from './autoSubmitter.svelte.js';
-    import SearchIcon from '$lib/icons/SearchIcon.svelte';
+    import SearchIcon from '$lib/shared/ui/SearchIcon.svelte';
 
     let {
         q = $bindable(),

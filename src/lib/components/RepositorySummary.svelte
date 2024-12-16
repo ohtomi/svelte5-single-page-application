@@ -1,6 +1,6 @@
 <script lang="ts" module>
-import type { UnArray, UnResultOk } from "$lib/values";
-import type { searchRepositories } from "$lib/github";
+import type { UnArray, UnResultOk } from "$lib/shared/model/values";
+import type { searchRepositories } from "$lib/shared/api/github";
 
 type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
 
@@ -11,10 +11,10 @@ export type RepositorySummaryProps = {
 
 <script lang="ts">
     import type {Component} from 'svelte';
-    import EyeIcon from '$lib/icons/EyeIcon.svelte';
-    import ForkIcon from '$lib/icons/ForkIcon.svelte';
-    import StarIcon from '$lib/icons/StarIcon.svelte';
-    import ExternalLinkIcon from '$lib/icons/ExternalLinkIcon.svelte';
+    import EyeIcon from '$lib/shared/ui/EyeIcon.svelte';
+    import ForkIcon from '$lib/shared/ui/ForkIcon.svelte';
+    import StarIcon from '$lib/shared/ui/StarIcon.svelte';
+    import ExternalLinkIcon from '$lib/shared/ui/ExternalLinkIcon.svelte';
 
     let {repository}: RepositorySummaryProps = $props();
 </script>

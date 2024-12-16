@@ -3,9 +3,9 @@ import { goto } from "$app/navigation";
 import { page } from "$app/stores";
 import type { PageData } from "./$types";
 import { encodeSearchParameters } from "$lib/components/locationEncoder";
-import InitialView from "$lib/views/InitialView.svelte";
-import ResultView from "$lib/views/ResultView.svelte";
-import ErrorView from "$lib/views/ErrorView.svelte";
+import InitialView from "$lib/pages/initial/ui/InitialView.svelte";
+import ResultView from "$lib/pages/result/ui/ResultView.svelte";
+import ErrorView from "$lib/pages/error/ui/ErrorView.svelte";
 
 let { data }: { data: PageData } = $props();
 

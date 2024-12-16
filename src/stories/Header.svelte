@@ -1,6 +1,6 @@
 <script>
-import './header.css';
-import Button from './Button.svelte';
+import "./header.css";
+import Button from "./Button.svelte";
 
 /**
  * @typedef {Object} Props

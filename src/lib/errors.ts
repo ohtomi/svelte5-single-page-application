@@ -19,7 +19,7 @@ const isError = (cause: unknown): cause is Error => {
 };
 
 const isString = (cause: unknown): cause is string => {
-	return typeof cause === 'string';
+	return typeof cause === "string";
 };
 
 type ToStringer = {
@@ -29,18 +29,18 @@ type ToStringer = {
 const isToStringer = (cause: unknown): cause is ToStringer => {
 	return (
 		!!cause &&
-		typeof cause === 'object' &&
-		'toString' in cause &&
-		typeof cause.toString === 'function'
+		typeof cause === "object" &&
+		"toString" in cause &&
+		typeof cause.toString === "function"
 	);
 };
 
 export class ValidationError extends Error {
-	name = 'ValidationError';
+	name = "ValidationError";
 }
 
 export class SearchRepositoriesApiError extends Error {
-	name = 'SearchRepositoriesApiError';
+	name = "SearchRepositoriesApiError";
 }
 
 export const toSearchRepositoriesApiError = errorWithCause(

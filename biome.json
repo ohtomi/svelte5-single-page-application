@@ -23,9 +23,5 @@
 		},
 		"ignore": ["*.svelte"]
 	},
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "single"
-		}
-	}
+	"javascript": {}
 }

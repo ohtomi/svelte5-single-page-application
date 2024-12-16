@@ -1,5 +1,5 @@
 <script>
-import './button.css';
+import "./button.css";
 
 /**
  * @typedef {Object} Props
@@ -14,7 +14,7 @@ import './button.css';
 const {
 	primary = false,
 	backgroundColor,
-	size = 'medium',
+	size = "medium",
 	label,
 	onClick,
 } = $props();

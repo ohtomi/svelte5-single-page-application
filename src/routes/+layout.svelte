@@ -3,7 +3,7 @@
 </svelte:head>
 
 <script lang="ts">
-import '../app.css';
+import "../app.css";
 
 let { children } = $props();
 </script>

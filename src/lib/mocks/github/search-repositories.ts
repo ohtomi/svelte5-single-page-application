@@ -1,16 +1,16 @@
-import { delay, http, HttpResponse } from 'msw';
-import type { request } from '@octokit/request';
+import { delay, http, HttpResponse } from "msw";
+import type { request } from "@octokit/request";
 
-import { repositories } from '$lib/mocks/github/fixtures';
+import { repositories } from "$lib/mocks/github/fixtures";
 
-const endpoint = 'https://api.github.com/search/repositories';
+const endpoint = "https://api.github.com/search/repositories";
 
 type SearchRepositoriesReturn = Awaited<
-	ReturnType<typeof request<'GET /search/repositories'>>
+	ReturnType<typeof request<"GET /search/repositories">>
 >;
 
-type SearchRepositoriesResponse = SearchRepositoriesReturn['data'];
-type SearchRepositoriesResponseItems = SearchRepositoriesResponse['items'];
+type SearchRepositoriesResponse = SearchRepositoriesReturn["data"];
+type SearchRepositoriesResponseItems = SearchRepositoriesResponse["items"];
 
 const response: SearchRepositoriesResponse = {
 	total_count: 73189,
@@ -27,6 +27,6 @@ export const ng401 = http.get(endpoint, () => {
 });
 
 export const slowOk200 = http.get(endpoint, async () => {
-	await delay('infinite');
+	await delay("infinite");
 	return HttpResponse.json(response);
 });

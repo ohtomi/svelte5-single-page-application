@@ -1,4 +1,4 @@
-import type { Action } from 'svelte/action';
+import type { Action } from "svelte/action";
 
 type Params = () => {
 	button: HTMLButtonElement | undefined;
@@ -10,7 +10,7 @@ export const autoSubmit: Action<HTMLInputElement, Params> = (
 ) => {
 	$effect(() => {
 		const handleKeyDown = (ke: KeyboardEvent) => {
-			if (ke.key !== 'Enter') {
+			if (ke.key !== "Enter") {
 				return;
 			}
 
@@ -18,10 +18,10 @@ export const autoSubmit: Action<HTMLInputElement, Params> = (
 			button?.click();
 		};
 
-		node.addEventListener('keydown', handleKeyDown);
+		node.addEventListener("keydown", handleKeyDown);
 
 		return () => {
-			node.removeEventListener('keydown', handleKeyDown);
+			node.removeEventListener("keydown", handleKeyDown);
 		};
 	});
 };

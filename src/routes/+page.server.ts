@@ -1,7 +1,7 @@
-import { Result } from 'neverthrow';
+import { Result } from "neverthrow";
 
-import type { PageServerLoad } from './$types';
-import type { UnResultOk } from '$lib/values';
+import type { PageServerLoad } from "./$types";
+import type { UnResultOk } from "$lib/values";
 import {
 	asOrderOption,
 	asPageOption,
@@ -9,7 +9,7 @@ import {
 	asQOption,
 	asSortOption,
 	searchRepositories,
-} from '$lib/github';
+} from "$lib/github";
 
 type ViewPageData =
 	| InitialViewPageData
@@ -17,31 +17,31 @@ type ViewPageData =
 	| ErrorViewPageData;
 
 type InitialViewPageData = {
-	type: 'initial';
+	type: "initial";
 };
 
 type ResultViewPageData = {
-	type: 'result';
+	type: "result";
 	value: SearchResult;
 };
 
 type SearchResult = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
 
 type ErrorViewPageData = {
-	type: 'error';
+	type: "error";
 	cause: string;
 };
 
 export const load: PageServerLoad = async ({ url }): Promise<ViewPageData> => {
-	const q = url.searchParams.get('q') || undefined;
-	const sort = url.searchParams.get('sort') || undefined;
-	const order = url.searchParams.get('order') || undefined;
-	const per_page = url.searchParams.get('per_page') || undefined;
-	const page = url.searchParams.get('page') || undefined;
+	const q = url.searchParams.get("q") || undefined;
+	const sort = url.searchParams.get("sort") || undefined;
+	const order = url.searchParams.get("order") || undefined;
+	const per_page = url.searchParams.get("per_page") || undefined;
+	const page = url.searchParams.get("page") || undefined;
 
 	if (!q) {
 		return {
-			type: 'initial',
+			type: "initial",
 		} satisfies InitialViewPageData;
 	}
 
@@ -58,13 +58,13 @@ export const load: PageServerLoad = async ({ url }): Promise<ViewPageData> => {
 		.match(
 			(result) => {
 				return {
-					type: 'result',
+					type: "result",
 					value: result,
 				} satisfies ResultViewPageData;
 			},
 			(error) => {
 				return {
-					type: 'error',
+					type: "error",
 					cause: error.message,
 				} satisfies ErrorViewPageData;
 			},

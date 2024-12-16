@@ -1,18 +1,18 @@
 <script lang="ts">
-import { goto } from '$app/navigation';
-import { page } from '$app/stores';
-import type { PageData } from './$types';
-import { encodeSearchParameters } from '$lib/components/locationEncoder';
-import InitialView from '$lib/views/InitialView.svelte';
-import ResultView from '$lib/views/ResultView.svelte';
-import ErrorView from '$lib/views/ErrorView.svelte';
+import { goto } from "$app/navigation";
+import { page } from "$app/stores";
+import type { PageData } from "./$types";
+import { encodeSearchParameters } from "$lib/components/locationEncoder";
+import InitialView from "$lib/views/InitialView.svelte";
+import ResultView from "$lib/views/ResultView.svelte";
+import ErrorView from "$lib/views/ErrorView.svelte";
 
 let { data }: { data: PageData } = $props();
 
-let q = $state('');
+let q = $state("");
 
 $effect(() => {
-	q = $page.url.searchParams.get('q') || '';
+	q = $page.url.searchParams.get("q") || "";
 });
 
 const handleSearchClick = (q: string): void => {

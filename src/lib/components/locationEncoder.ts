@@ -11,25 +11,25 @@ export const encodeSearchParameters = (
 		encodeOrderOption(order),
 		encodePerPageOption(per_page),
 		encodePageOption(page),
-	].join('');
+	].join("");
 };
 
 const encodeQOption = (q: string): string => {
-	return q ? `?q=${encodeURIComponent(q)}` : '';
+	return q ? `?q=${encodeURIComponent(q)}` : "";
 };
 
 const encodeSortOption = (sort?: string): string => {
-	return sort ? `&sort=${encodeURIComponent(sort)}` : '';
+	return sort ? `&sort=${encodeURIComponent(sort)}` : "";
 };
 
 const encodeOrderOption = (order?: string): string => {
-	return order ? `&order=${encodeURIComponent(order)}` : '';
+	return order ? `&order=${encodeURIComponent(order)}` : "";
 };
 
 const encodePerPageOption = (per_page?: number): string => {
-	return per_page ? `&per_page=${encodeURIComponent(per_page)}` : '';
+	return per_page ? `&per_page=${encodeURIComponent(per_page)}` : "";
 };
 
 const encodePageOption = (page?: number): string => {
-	return page ? `&page=${encodeURIComponent(page)}` : '';
+	return page ? `&page=${encodeURIComponent(page)}` : "";
 };

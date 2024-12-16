@@ -1,14 +1,14 @@
 <script lang="ts">
-import TotalCount, { type TotalCountProps } from './TotalCount.svelte';
+import TotalCount, { type TotalCountProps } from "./TotalCount.svelte";
 import RepositorySummary, {
 	type RepositorySummaryProps,
-} from './RepositorySummary.svelte';
-import Pagination, { type PaginationProps } from './Pagination.svelte';
+} from "./RepositorySummary.svelte";
+import Pagination, { type PaginationProps } from "./Pagination.svelte";
 
 type Props = {
-	totalCount: TotalCountProps['totalCount'];
-	repositories: Array<RepositorySummaryProps['repository']>;
-	options: PaginationProps['options'];
+	totalCount: TotalCountProps["totalCount"];
+	repositories: Array<RepositorySummaryProps["repository"]>;
+	options: PaginationProps["options"];
 };
 
 let { totalCount, repositories, options }: Props = $props();

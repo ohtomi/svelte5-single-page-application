@@ -1,9 +1,9 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test } from "vitest";
 
-import { listPageNumbers } from '$lib/components/paginators';
+import { listPageNumbers } from "$lib/components/paginators";
 
-describe('listPageNumbers', () => {
-	describe('ページング件数よりもページ数が少ない場合、全ページが列挙される', () => {
+describe("listPageNumbers", () => {
+	describe("ページング件数よりもページ数が少ない場合、全ページが列挙される", () => {
 		test.each([
 			{
 				currentPage: 1,
@@ -36,7 +36,7 @@ describe('listPageNumbers', () => {
 				},
 			},
 		])(
-			'listPageNumbers($currentPage, $lastPage, $pagingSize)',
+			"listPageNumbers($currentPage, $lastPage, $pagingSize)",
 			({ currentPage, lastPage, pagingSize, want }) => {
 				const got = listPageNumbers(currentPage, lastPage, pagingSize);
 				expect(got).toEqual(want);
@@ -44,7 +44,7 @@ describe('listPageNumbers', () => {
 		);
 	});
 
-	describe('ページング件数よりもページ数が多い場合、ページング件数ぶんのページが列挙される', () => {
+	describe("ページング件数よりもページ数が多い場合、ページング件数ぶんのページが列挙される", () => {
 		test.each([
 			{
 				currentPage: 1,
@@ -77,7 +77,7 @@ describe('listPageNumbers', () => {
 				},
 			},
 		])(
-			'listPageNumbers($currentPage, $lastPage, $pagingSize)',
+			"listPageNumbers($currentPage, $lastPage, $pagingSize)",
 			({ currentPage, lastPage, pagingSize, want }) => {
 				const got = listPageNumbers(currentPage, lastPage, pagingSize);
 				expect(got).toEqual(want);
@@ -85,7 +85,7 @@ describe('listPageNumbers', () => {
 		);
 	});
 
-	describe('ページング件数よりもページ数が多い場合、なるべく現在ページがページング件数の中央に位置する', () => {
+	describe("ページング件数よりもページ数が多い場合、なるべく現在ページがページング件数の中央に位置する", () => {
 		test.each([
 			{
 				currentPage: 5,
@@ -108,7 +108,7 @@ describe('listPageNumbers', () => {
 				},
 			},
 		])(
-			'listPageNumbers($currentPage, $lastPage, $pagingSize)',
+			"listPageNumbers($currentPage, $lastPage, $pagingSize)",
 			({ currentPage, lastPage, pagingSize, want }) => {
 				const got = listPageNumbers(currentPage, lastPage, pagingSize);
 				expect(got).toEqual(want);

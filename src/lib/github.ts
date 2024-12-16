@@ -194,5 +194,8 @@ const trySearchRepositories = async (
 		order,
 		per_page,
 		page,
+		request: {
+			signal: AbortSignal.timeout(5000),
+		},
 	});
 };

@@ -18,7 +18,7 @@ import {
 	asQOption,
 	asSortOption,
 	searchRepositories,
-} from "./github";
+} from "./search-repositories";
 import { githubServer } from "./mocks";
 import { ng401, slowOk200 } from "./mocks/search-repositories";
 

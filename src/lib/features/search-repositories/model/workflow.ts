@@ -9,7 +9,7 @@ import {
 	asQOption,
 	asSortOption,
 	searchRepositories,
-} from "../api/github";
+} from "../api/search-repositories";
 
 type ViewPageData =
 	| InitialViewPageData

@@ -1,18 +1,19 @@
 <script lang="ts">
 import { SiteHeader } from "$lib/widgets/site-header";
-import { Searcher, type SearcherProps } from "$lib/widgets/searcher";
+import { Searcher } from "$lib/widgets/searcher";
 
 import ErrorMessage from "./ErrorMessage.svelte";
 
 type Props = {
 	cause: string;
-} & SearcherProps;
+	q: string;
+};
 
-let { cause, q, onclick }: Props = $props();
+let { cause, q }: Props = $props();
 </script>
 
 <SiteHeader/>
 
-<Searcher {q} {onclick}/>
+<Searcher {q}/>
 
 <ErrorMessage {cause}/>

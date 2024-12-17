@@ -1,25 +1,20 @@
-<script lang="ts" module>
-export type SearcherProps = {
-	q: string;
-	onclick: (q: string) => void;
-};
-</script>
-
 <script lang="ts">
-    import {SearchIcon} from '$lib/shared';
+import { goto } from "$app/navigation";
+import { SearchIcon, encodeSearchParameters } from "$lib/shared";
 
-    import {autoSubmit} from './autoSubmitter.svelte.js';
+import { autoSubmit } from "./autoSubmitter.svelte.js";
 
-    let {
-        q = $bindable(),
-        onclick,
-    }: SearcherProps = $props();
+type Props = {
+	q: string;
+};
 
-    let handleClick = $derived.by(() => () => {
-        onclick(q);
-    });
+let { q = $bindable() }: Props = $props();
 
-    let buttonRef: HTMLButtonElement | undefined = $state();
+let handleClick = () => {
+	goto(`/${encodeSearchParameters(q)}`);
+};
+
+let buttonRef: HTMLButtonElement | undefined = $state();
 </script>
 
 <div class="max-w-screen-md">

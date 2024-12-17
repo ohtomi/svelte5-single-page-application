@@ -1,21 +1,24 @@
 <script lang="ts">
 import type { UnResultOk, searchRepositories } from "$lib/shared";
 import { SiteHeader } from "$lib/widgets/site-header";
-import { Searcher, type SearcherProps } from "$lib/widgets/searcher";
+import { Searcher } from "$lib/widgets/searcher";
 
 import SearchResult from "./SearchResult.svelte";
 
-type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
+type SearchRepositoriesReturn = UnResultOk<
+	Awaited<ReturnType<typeof searchRepositories>>
+>;
 
 type Props = {
-	value: Value;
-} & SearcherProps;
+	value: SearchRepositoriesReturn;
+	q: string;
+};
 
-let { value, q, onclick }: Props = $props();
+let { value, q }: Props = $props();
 </script>
 
 <SiteHeader/>
 
-<Searcher {q} {onclick}/>
+<Searcher {q}/>
 
 <SearchResult totalCount={value.totalCount} repositories={value.repositories} options={value.options}/>

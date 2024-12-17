@@ -3,10 +3,10 @@ import {
 	encodeSearchParameters,
 	LeftArrowIcon,
 	RightArrowIcon,
-	type searchRepositories,
 	type UnResultOk,
 } from "$lib/shared";
 
+import type { searchRepositories } from "../api/search-repositories";
 import { listPageNumbers } from "./paginators";
 
 type Props = {

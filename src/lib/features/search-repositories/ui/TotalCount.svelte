@@ -1,5 +1,7 @@
 <script lang="ts">
-import type { searchRepositories, UnResultOk } from "$lib/shared";
+import type { UnResultOk } from "$lib/shared";
+
+import type { searchRepositories } from "../api/search-repositories";
 
 type Props = {
 	totalCount: SearchRepositoriesReturn["totalCount"];

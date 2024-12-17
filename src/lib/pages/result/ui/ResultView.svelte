@@ -1,16 +1,13 @@
 <script lang="ts">
-import type { searchRepositories, UnResultOk } from "$lib/shared";
 import { SiteHeader } from "$lib/widgets/site-header";
 import { Searcher } from "$lib/widgets/searcher";
-
-import SearchResult from "./SearchResult.svelte";
-
-type SearchRepositoriesReturn = UnResultOk<
-	Awaited<ReturnType<typeof searchRepositories>>
->;
+import {
+	type ResultViewPageData,
+	SearchResult,
+} from "$lib/features/search-repositories";
 
 type Props = {
-	value: SearchRepositoriesReturn;
+	value: ResultViewPageData["value"];
 	q: string;
 };
 

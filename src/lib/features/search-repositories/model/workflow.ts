@@ -11,17 +11,17 @@ import {
 	searchRepositories,
 } from "../api/search-repositories";
 
-type ViewPageData =
+export type ViewPageData =
 	| InitialViewPageData
 	| ResultViewPageData
 	| ErrorViewPageData;
 
-type InitialViewPageData = {
+export type InitialViewPageData = {
 	type: "initial";
 	q: string;
 };
 
-type ResultViewPageData = {
+export type ResultViewPageData = {
 	type: "result";
 	value: SearchRepositoriesReturn;
 	q: string;
@@ -31,7 +31,7 @@ type SearchRepositoriesReturn = UnResultOk<
 	Awaited<ReturnType<typeof searchRepositories>>
 >;
 
-type ErrorViewPageData = {
+export type ErrorViewPageData = {
 	type: "error";
 	cause: string;
 	q: string;

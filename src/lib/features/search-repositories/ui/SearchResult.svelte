@@ -1,6 +1,7 @@
 <script lang="ts">
-import type { searchRepositories, UnResultOk } from "$lib/shared";
+import type { UnResultOk } from "$lib/shared";
 
+import type { searchRepositories } from "../api/search-repositories";
 import TotalCount from "./TotalCount.svelte";
 import RepositorySummary from "./RepositorySummary.svelte";
 import Pagination from "./Pagination.svelte";

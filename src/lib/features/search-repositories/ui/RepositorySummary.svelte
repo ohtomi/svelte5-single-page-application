@@ -5,11 +5,12 @@ import {
 	ExternalLinkIcon,
 	EyeIcon,
 	ForkIcon,
-	type searchRepositories,
 	StarIcon,
 	type UnArray,
 	type UnResultOk,
 } from "$lib/shared";
+
+import type { searchRepositories } from "../api/search-repositories";
 
 type Props = {
 	repository: UnArray<SearchRepositoriesReturn["repositories"]>;

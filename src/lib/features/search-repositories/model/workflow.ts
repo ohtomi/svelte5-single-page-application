@@ -22,11 +22,13 @@ type InitialViewPageData = {
 
 type ResultViewPageData = {
 	type: "result";
-	value: SearchResult;
+	value: SearchRepositoriesReturn;
 	q: string;
 };
 
-type SearchResult = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
+type SearchRepositoriesReturn = UnResultOk<
+	Awaited<ReturnType<typeof searchRepositories>>
+>;
 
 type ErrorViewPageData = {
 	type: "error";

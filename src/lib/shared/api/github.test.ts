@@ -16,13 +16,10 @@ import {
 	asQOption,
 	asSortOption,
 	searchRepositories,
-} from "$lib/shared/api/github";
-import { githubServer } from "$lib/mocks/github";
-import { ng401, slowOk200 } from "$lib/mocks/github/search-repositories";
-import {
-	SearchRepositoriesApiError,
-	ValidationError,
-} from "$lib/shared/model/errors";
+} from "./github";
+import { githubServer } from "./mocks";
+import { ng401, slowOk200 } from "./mocks/search-repositories";
+import { SearchRepositoriesApiError, ValidationError } from "../model/errors";
 
 beforeAll(() => githubServer.listen({ onUnhandledRequest: "error" }));
 afterEach(() => githubServer.resetHandlers());

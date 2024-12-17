@@ -1,7 +1,7 @@
 import { delay, http, HttpResponse } from "msw";
 import type { request } from "@octokit/request";
 
-import { repositories } from "$lib/mocks/github/fixtures";
+import { repositories } from "$lib/shared/api/mocks/fixtures";
 
 const endpoint = "https://api.github.com/search/repositories";
 

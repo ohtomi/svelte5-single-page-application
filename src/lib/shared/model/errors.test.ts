@@ -1,9 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import {
-	errorWithCause,
-	toSearchRepositoriesApiError,
-} from "$lib/shared/model/errors";
+import { errorWithCause, toSearchRepositoriesApiError } from "../model/errors";
 
 describe("errorWithCause()()()", () => {
 	test("Errorコンストラクターが渡されたとき、Errorが返される", () => {

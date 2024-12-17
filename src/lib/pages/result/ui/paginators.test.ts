@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { listPageNumbers } from "$lib/components/paginators";
+import { listPageNumbers } from "./paginators";
 
 describe("listPageNumbers", () => {
 	describe("ページング件数よりもページ数が少ない場合、全ページが列挙される", () => {

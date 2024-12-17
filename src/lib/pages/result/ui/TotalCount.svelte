@@ -1,6 +1,5 @@
 <script lang="ts" module>
-import type { UnResultOk } from "$lib/shared/model/values";
-import type { searchRepositories } from "$lib/shared/api/github";
+import type { UnResultOk, searchRepositories } from "$lib/shared";
 
 type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
 

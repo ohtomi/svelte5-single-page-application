@@ -1,7 +1,8 @@
 <script lang="ts">
-import SiteHeader from "$lib/components/SiteHeader.svelte";
-import Searcher, { type SearcherProps } from "$lib/components/Searcher.svelte";
-import ErrorMessage from "$lib/components/ErrorMessage.svelte";
+import { SiteHeader } from "$lib/widgets/site-header";
+import { Searcher, type SearcherProps } from "$lib/widgets/searcher";
+
+import ErrorMessage from "./ErrorMessage.svelte";
 
 type Props = {
 	cause: string;

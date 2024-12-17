@@ -1,6 +1,5 @@
 <script lang="ts" module>
-import type { UnResultOk } from "$lib/shared/model/values";
-import type { searchRepositories } from "$lib/shared/api/github";
+import type { UnResultOk, searchRepositories } from "$lib/shared";
 
 type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
 
@@ -11,9 +10,8 @@ export type PaginationProps = {
 </script>
 
 <script lang="ts">
-    import {encodeSearchParameters} from './locationEncoder';
-    import LeftArrowIcon from '$lib/shared/ui/LeftArrowIcon.svelte';
-    import RightArrowIcon from '$lib/shared/ui/RightArrowIcon.svelte';
+    import {encodeSearchParameters, LeftArrowIcon, RightArrowIcon} from '$lib/shared';
+
     import {listPageNumbers} from './paginators';
 
     let {totalCount, options}: PaginationProps = $props();

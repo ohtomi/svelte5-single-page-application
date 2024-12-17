@@ -1,9 +1,9 @@
 <script lang="ts">
-import type { UnResultOk } from "$lib/shared/model/values";
-import type { searchRepositories } from "$lib/shared/api/github";
-import SiteHeader from "$lib/components/SiteHeader.svelte";
-import Searcher, { type SearcherProps } from "$lib/components/Searcher.svelte";
-import SearchResult from "$lib/components/SearchResult.svelte";
+import type { UnResultOk, searchRepositories } from "$lib/shared";
+import { SiteHeader } from "$lib/widgets/site-header";
+import { Searcher, type SearcherProps } from "$lib/widgets/searcher";
+
+import SearchResult from "./SearchResult.svelte";
 
 type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
 

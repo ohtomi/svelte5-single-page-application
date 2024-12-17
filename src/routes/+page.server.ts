@@ -1,15 +1,15 @@
 import { Result } from "neverthrow";
 
 import type { PageServerLoad } from "./$types";
-import type { UnResultOk } from "$lib/shared/model/values";
 import {
+	type UnResultOk,
 	asOrderOption,
 	asPageOption,
 	asPerPageOption,
 	asQOption,
 	asSortOption,
 	searchRepositories,
-} from "$lib/shared/api/github";
+} from "$lib/shared";
 
 type ViewPageData =
 	| InitialViewPageData

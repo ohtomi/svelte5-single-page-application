@@ -2,12 +2,12 @@
 import { SiteHeader } from "$lib/widgets/site-header";
 import { Searcher } from "$lib/widgets/searcher";
 import {
-	type ResultViewPageData,
+	type SearchRepositoriesResult,
 	SearchResult,
 } from "$lib/features/search-repositories";
 
 type Props = {
-	value: ResultViewPageData["value"];
+	value: SearchRepositoriesResult["value"];
 	q: string;
 };
 

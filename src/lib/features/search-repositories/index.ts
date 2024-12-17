@@ -1,9 +1,8 @@
 export {
-	type ErrorViewPageData,
 	invokeSearchRepositories,
-	type InitialViewPageData,
-	type ViewPageData,
-	type ResultViewPageData,
+	type SearchRepositoriesError,
+	type SearchRepositoriesInitial,
+	type SearchRepositoriesResult,
 } from "./model/workflow";
 
 export { default as SearchResult } from "./ui/SearchResult.svelte";

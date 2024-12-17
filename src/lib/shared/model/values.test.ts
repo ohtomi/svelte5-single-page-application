@@ -3,9 +3,9 @@ import type { Result } from "neverthrow";
 
 import {
 	type Brand,
-	type ExistingValueOf,
 	joinAllElements,
 	listAllElements,
+	type NotUndefined,
 	type UnArray,
 	type UnResultErr,
 	type UnResultOk,
@@ -101,9 +101,9 @@ describe("UnResultErr<>", () => {
 	});
 });
 
-describe("ExistingValueOf<>", () => {
+describe("NotUndefined<>", () => {
 	test("型のユニットテスト", () => {
-		type Got = ExistingValueOf<"key-a" | "key-b" | "key-c" | undefined>;
+		type Got = NotUndefined<"key-a" | "key-b" | "key-c" | undefined>;
 		type Want = "key-a" | "key-b" | "key-c";
 
 		const result: Equals<Got, Want> = true;

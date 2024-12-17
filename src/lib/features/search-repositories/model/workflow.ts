@@ -11,17 +11,17 @@ import {
 	searchRepositories,
 } from "../api/search-repositories";
 
-export type ViewPageData =
-	| InitialViewPageData
-	| ResultViewPageData
-	| ErrorViewPageData;
+type SearchRepositoriesInvocation =
+	| SearchRepositoriesInitial
+	| SearchRepositoriesResult
+	| SearchRepositoriesError;
 
-export type InitialViewPageData = {
+export type SearchRepositoriesInitial = {
 	type: "initial";
 	q: string;
 };
 
-export type ResultViewPageData = {
+export type SearchRepositoriesResult = {
 	type: "result";
 	value: SearchRepositoriesReturn;
 	q: string;
@@ -31,7 +31,7 @@ type SearchRepositoriesReturn = UnResultOk<
 	Awaited<ReturnType<typeof searchRepositories>>
 >;
 
-export type ErrorViewPageData = {
+export type SearchRepositoriesError = {
 	type: "error";
 	cause: string;
 	q: string;
@@ -39,7 +39,7 @@ export type ErrorViewPageData = {
 
 export const invokeSearchRepositories = async (
 	searchParams: URLSearchParams,
-): Promise<ViewPageData> => {
+): Promise<SearchRepositoriesInvocation> => {
 	const q = searchParams.get("q") || undefined;
 	const sort = searchParams.get("sort") || undefined;
 	const order = searchParams.get("order") || undefined;
@@ -50,7 +50,7 @@ export const invokeSearchRepositories = async (
 		return {
 			type: "initial",
 			q: "",
-		} satisfies InitialViewPageData;
+		} satisfies SearchRepositoriesInitial;
 	}
 
 	return Result.combine([
@@ -69,14 +69,14 @@ export const invokeSearchRepositories = async (
 					type: "result",
 					value: result,
 					q,
-				} satisfies ResultViewPageData;
+				} satisfies SearchRepositoriesResult;
 			},
 			(error) => {
 				return {
 					type: "error",
 					cause: error.message,
 					q,
-				} satisfies ErrorViewPageData;
+				} satisfies SearchRepositoriesError;
 			},
 		);
 };

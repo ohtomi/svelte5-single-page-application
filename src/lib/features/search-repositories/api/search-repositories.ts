@@ -9,9 +9,9 @@ import { request } from "@octokit/request";
 
 import {
 	type Brand,
-	type ExistingValueOf,
 	joinAllElements,
 	listAllElements,
+	type NotUndefined,
 	type SearchRepositoriesApiError,
 	toSearchRepositoriesApiError,
 	ValidationError,
@@ -45,23 +45,33 @@ type SearchOptions = {
 	page: PageOption;
 };
 
-type RequestResponse = Awaited<
+type OctokitResponse = Awaited<
 	ReturnType<typeof request<"GET /search/repositories">>
 >;
-type RequestParameters = Parameters<typeof request<"GET /search/repositories">>;
 
-type QOption = Brand<ExistingValueOf<RequestParameters[1]>["q"], "QOption">;
+type OctokitRequestParameters = Parameters<
+	typeof request<"GET /search/repositories">
+>;
+
+type QOption = Brand<NotUndefined<OctokitRequestParameters[1]>["q"], "QOption">;
+
 type SortOption =
-	| Brand<ExistingValueOf<RequestParameters[1]>["sort"], "SortOption">
+	| Brand<NotUndefined<OctokitRequestParameters[1]>["sort"], "SortOption">
 	| undefined;
+
 type OrderOption =
-	| Brand<ExistingValueOf<RequestParameters[1]>["order"], "OrderOption">
+	| Brand<NotUndefined<OctokitRequestParameters[1]>["order"], "OrderOption">
 	| undefined;
+
 type PerPageOption =
-	| Brand<ExistingValueOf<RequestParameters[1]>["per_page"], "PerPageOption">
+	| Brand<
+			NotUndefined<OctokitRequestParameters[1]>["per_page"],
+			"PerPageOption"
+	  >
 	| undefined;
+
 type PageOption = Brand<
-	ExistingValueOf<RequestParameters[1]>["page"],
+	NotUndefined<OctokitRequestParameters[1]>["page"],
 	"PageOption"
 >;
 
@@ -79,7 +89,7 @@ export const asSortOption = (
 	v: unknown,
 ): Result<SortOption, ValidationError> => {
 	const allSortOptions = listAllElements<
-		ExistingValueOf<RequestParameters[1]>["sort"]
+		NotUndefined<OctokitRequestParameters[1]>["sort"]
 	>()("stars", "forks", "help-wanted-issues", "updated", undefined);
 
 	return v === undefined
@@ -97,7 +107,7 @@ export const asOrderOption = (
 	v: unknown,
 ): Result<OrderOption, ValidationError> => {
 	const allOrderOptions = listAllElements<
-		ExistingValueOf<RequestParameters[1]>["order"]
+		NotUndefined<OctokitRequestParameters[1]>["order"]
 	>()("asc", "desc", undefined);
 
 	return v === undefined
@@ -185,7 +195,7 @@ const trySearchRepositories = async (
 	order: OrderOption,
 	per_page: PerPageOption,
 	page: PageOption,
-): Promise<RequestResponse> => {
+): Promise<OctokitResponse> => {
 	return await request("GET /search/repositories", {
 		q,
 		sort,

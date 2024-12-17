@@ -21,7 +21,7 @@ export type UnResultErr<T> = T extends Result<infer _Success, infer Failure>
 	? Failure
 	: never;
 
-export type ExistingValueOf<T> = T extends undefined ? never : T;
+export type NotUndefined<T> = T extends undefined ? never : T;
 
 // see https://stackoverflow.com/a/77740471
 export const listAllElements =

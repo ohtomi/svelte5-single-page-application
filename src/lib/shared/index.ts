@@ -1,8 +1,8 @@
 export {
 	type Brand,
-	type ExistingValueOf,
 	joinAllElements,
 	listAllElements,
+	type NotUndefined,
 	type UnArray,
 	type UnResultOk,
 } from "./model/values";

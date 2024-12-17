@@ -20,7 +20,7 @@ import {
 	searchRepositories,
 } from "./search-repositories";
 import { githubServer } from "./mocks";
-import { ng401, slowOk200 } from "./mocks/search-repositories";
+import { ng401, slowOk200 } from "./mocks/github-search-repositories";
 
 beforeAll(() => githubServer.listen({ onUnhandledRequest: "error" }));
 afterEach(() => githubServer.resetHandlers());

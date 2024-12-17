@@ -1,6 +1,6 @@
 import { setupServer } from "msw/node";
 
-import { ok200 as getSearchRepositories } from "./search-repositories";
+import { ok200 as getSearchRepositories } from "./github-search-repositories";
 
 const handlers = [getSearchRepositories];
 

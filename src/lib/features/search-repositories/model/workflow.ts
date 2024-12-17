@@ -1,5 +1,7 @@
 import { Result } from "neverthrow";
 
+import type { UnResultOk } from "$lib/shared";
+
 import {
 	asOrderOption,
 	asPageOption,
@@ -7,8 +9,7 @@ import {
 	asQOption,
 	asSortOption,
 	searchRepositories,
-	type UnResultOk,
-} from "$lib/shared";
+} from "../api/github";
 
 type ViewPageData =
 	| InitialViewPageData

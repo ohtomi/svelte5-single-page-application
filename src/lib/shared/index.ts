@@ -1,13 +1,16 @@
 export {
-	asOrderOption,
-	asPageOption,
-	asPerPageOption,
-	asQOption,
-	asSortOption,
-	searchRepositories,
-} from "./api/github";
-
-export type { UnArray, UnResultOk } from "./model/values";
+	type Brand,
+	type ExistingValueOf,
+	joinAllElements,
+	listAllElements,
+	type UnArray,
+	type UnResultOk,
+} from "./model/values";
+export {
+	SearchRepositoriesApiError,
+	toSearchRepositoriesApiError,
+	ValidationError,
+} from "./model/errors";
 
 export { default as ExternalLinkIcon } from "./ui/ExternalLinkIcon.svelte";
 export { default as EyeIcon } from "./ui/EyeIcon.svelte";

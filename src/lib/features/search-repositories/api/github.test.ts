@@ -9,6 +9,8 @@ import {
 } from "vitest";
 import { Result } from "neverthrow";
 
+import { SearchRepositoriesApiError, ValidationError } from "$lib/shared";
+
 import {
 	asOrderOption,
 	asPageOption,
@@ -19,7 +21,6 @@ import {
 } from "./github";
 import { githubServer } from "./mocks";
 import { ng401, slowOk200 } from "./mocks/search-repositories";
-import { SearchRepositoriesApiError, ValidationError } from "../model/errors";
 
 beforeAll(() => githubServer.listen({ onUnhandledRequest: "error" }));
 afterEach(() => githubServer.resetHandlers());

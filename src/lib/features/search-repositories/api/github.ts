@@ -12,12 +12,10 @@ import {
 	type ExistingValueOf,
 	joinAllElements,
 	listAllElements,
-} from "../model/values";
-import {
 	type SearchRepositoriesApiError,
 	toSearchRepositoriesApiError,
 	ValidationError,
-} from "../model/errors";
+} from "$lib/shared";
 
 type SearchResult = {
 	totalCount: number;

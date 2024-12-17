@@ -1,17 +1,17 @@
-<script lang="ts" module>
+<script lang="ts">
 import type { UnResultOk, searchRepositories } from "$lib/shared";
 
-type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
-
-export type TotalCountProps = {
-	totalCount: Value["totalCount"];
+type Props = {
+	totalCount: SearchRepositoriesReturn["totalCount"];
 };
-</script>
 
-<script lang="ts">
-    let {totalCount}: TotalCountProps = $props();
+type SearchRepositoriesReturn = UnResultOk<
+	Awaited<ReturnType<typeof searchRepositories>>
+>;
 
-    let formattedTotalCount = $derived(new Intl.NumberFormat().format(totalCount));
+let { totalCount }: Props = $props();
+
+let formattedTotalCount = $derived(new Intl.NumberFormat().format(totalCount));
 </script>
 
 <div class="max-w-screen-md bg-white text-gray-900 dark:bg-gray-800 dark:text-white">

@@ -1,18 +1,25 @@
-<script lang="ts" module>
-import type { UnArray, UnResultOk, searchRepositories } from "$lib/shared";
-
-type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
-
-export type RepositorySummaryProps = {
-	repository: UnArray<Value["repositories"]>;
-};
-</script>
-
 <script lang="ts">
-    import type {Component} from 'svelte';
-    import {EyeIcon, ForkIcon, StarIcon, ExternalLinkIcon} from '$lib/shared';
+import type { Component } from "svelte";
 
-    let {repository}: RepositorySummaryProps = $props();
+import {
+	ExternalLinkIcon,
+	EyeIcon,
+	ForkIcon,
+	type searchRepositories,
+	StarIcon,
+	type UnArray,
+	type UnResultOk,
+} from "$lib/shared";
+
+type Props = {
+	repository: UnArray<SearchRepositoriesReturn["repositories"]>;
+};
+
+type SearchRepositoriesReturn = UnResultOk<
+	Awaited<ReturnType<typeof searchRepositories>>
+>;
+
+let { repository }: Props = $props();
 </script>
 
 <div class="max-w-screen-md p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

@@ -1,15 +1,19 @@
 <script lang="ts">
-import TotalCount, { type TotalCountProps } from "./TotalCount.svelte";
-import RepositorySummary, {
-	type RepositorySummaryProps,
-} from "./RepositorySummary.svelte";
-import Pagination, { type PaginationProps } from "./Pagination.svelte";
+import type { searchRepositories, UnResultOk } from "$lib/shared";
+
+import TotalCount from "./TotalCount.svelte";
+import RepositorySummary from "./RepositorySummary.svelte";
+import Pagination from "./Pagination.svelte";
 
 type Props = {
-	totalCount: TotalCountProps["totalCount"];
-	repositories: Array<RepositorySummaryProps["repository"]>;
-	options: PaginationProps["options"];
+	totalCount: SearchRepositoriesReturn["totalCount"];
+	repositories: SearchRepositoriesReturn["repositories"];
+	options: SearchRepositoriesReturn["options"];
 };
+
+type SearchRepositoriesReturn = UnResultOk<
+	Awaited<ReturnType<typeof searchRepositories>>
+>;
 
 let { totalCount, repositories, options }: Props = $props();
 </script>

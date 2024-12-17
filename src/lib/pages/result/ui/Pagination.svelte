@@ -1,28 +1,40 @@
-<script lang="ts" module>
-import type { UnResultOk, searchRepositories } from "$lib/shared";
-
-type Value = UnResultOk<Awaited<ReturnType<typeof searchRepositories>>>;
-
-export type PaginationProps = {
-	totalCount: Value["totalCount"];
-	options: Value["options"];
-};
-</script>
-
 <script lang="ts">
-    import {encodeSearchParameters, LeftArrowIcon, RightArrowIcon} from '$lib/shared';
+import {
+	encodeSearchParameters,
+	LeftArrowIcon,
+	RightArrowIcon,
+	type searchRepositories,
+	type UnResultOk,
+} from "$lib/shared";
 
-    import {listPageNumbers} from './paginators';
+import { listPageNumbers } from "./paginators";
 
-    let {totalCount, options}: PaginationProps = $props();
+type Props = {
+	totalCount: SearchRepositoriesReturn["totalCount"];
+	options: SearchRepositoriesReturn["options"];
+};
 
-    let currentPage = $derived(options.page);
-    let perPage = $derived(options.per_page ?? 1);
-    let lastPage = $derived(Math.ceil(totalCount / perPage));
+type SearchRepositoriesReturn = UnResultOk<
+	Awaited<ReturnType<typeof searchRepositories>>
+>;
 
-    let pageNumbers = $derived(listPageNumbers(currentPage, lastPage));
+let { totalCount, options }: Props = $props();
 
-    let toHref = $derived((page: number) => encodeSearchParameters(options.q, options.sort, options.order, options.per_page, page));
+let currentPage = $derived(options.page);
+let perPage = $derived(options.per_page ?? 1);
+let lastPage = $derived(Math.ceil(totalCount / perPage));
+
+let pageNumbers = $derived(listPageNumbers(currentPage, lastPage));
+
+let toHref = $derived((page: number) =>
+	encodeSearchParameters(
+		options.q,
+		options.sort,
+		options.order,
+		options.per_page,
+		page,
+	),
+);
 </script>
 
 <nav aria-label="Page navigation">

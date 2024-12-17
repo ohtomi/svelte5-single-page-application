@@ -1,6 +1,6 @@
 <script lang="ts">
 import { goto } from "$app/navigation";
-import { SearchIcon, encodeSearchParameters } from "$lib/shared";
+import { encodeSearchParameters, SearchIcon } from "$lib/shared";
 
 import { autoSubmit } from "./autoSubmitter.svelte.js";
 

@@ -1,7 +1,7 @@
 import {
-	assert,
 	afterAll,
 	afterEach,
+	assert,
 	beforeAll,
 	describe,
 	expect,

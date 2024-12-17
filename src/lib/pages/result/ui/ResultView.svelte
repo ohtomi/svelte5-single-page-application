@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { UnResultOk, searchRepositories } from "$lib/shared";
+import type { searchRepositories, UnResultOk } from "$lib/shared";
 import { SiteHeader } from "$lib/widgets/site-header";
 import { Searcher } from "$lib/widgets/searcher";
 

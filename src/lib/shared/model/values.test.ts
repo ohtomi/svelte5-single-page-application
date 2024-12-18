@@ -9,7 +9,7 @@ import {
 	type UnArray,
 	type UnResultErr,
 	type UnResultOk,
-} from "../model/values";
+} from "./values";
 
 type Equals<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y
 	? 1

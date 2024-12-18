@@ -1,5 +1,9 @@
-export { invokeSearchRepositories } from "./model/workflow";
+export {
+	invokeSearchRepositories,
+	type SearchRepositoriesError,
+	type SearchRepositoriesInitial,
+	type SearchRepositoriesResult,
+} from "./model/workflow";
 
-export { default as InitialView } from "./ui/InitialView.svelte";
-export { default as ResultView } from "./ui/ResultView.svelte";
-export { default as ErrorView } from "./ui/ErrorView.svelte";
+export { default as SearchResult } from "./ui/SearchResult.svelte";
+export { default as ErrorMessage } from "./ui/ErrorMessage.svelte";

@@ -1,8 +1,10 @@
 <script lang="ts">
 import type { PageData } from "./$types";
-import { InitialView } from "$lib/pages/initial";
-import { ResultView } from "$lib/pages/result";
-import { ErrorView } from "$lib/pages/error";
+import {
+	ErrorView,
+	InitialView,
+	ResultView,
+} from "$lib/features/search-repositories";
 
 let { data }: { data: PageData } = $props();
 </script>

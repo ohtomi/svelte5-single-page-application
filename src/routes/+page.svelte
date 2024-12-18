@@ -4,7 +4,7 @@ import {
 	ErrorView,
 	InitialView,
 	ResultView,
-} from "$lib/features/search-repositories";
+} from "$lib/widgets/search-repositories";
 
 let { data }: { data: PageData } = $props();
 </script>

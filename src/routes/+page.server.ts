@@ -1,5 +1,5 @@
 import type { PageServerLoad } from "./$types";
-import { invokeSearchRepositories } from "$lib/features/search-repositories";
+import { invokeSearchRepositories } from "$lib/widgets/search-repositories";
 
 type InvokeSearchRepositoriesReturn = Awaited<
 	ReturnType<typeof invokeSearchRepositories>

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { SiteHeader } from "$lib/widgets/site-header";
-import { Searcher } from "$lib/widgets/searcher";
+import { SearchForm } from "$lib/widgets/search-form";
 import {
 	ErrorMessage,
 	type SearchRepositoriesError,
@@ -16,6 +16,6 @@ let { cause, q }: Props = $props();
 
 <SiteHeader/>
 
-<Searcher {q}/>
+<SearchForm {q}/>
 
 <ErrorMessage {cause}/>

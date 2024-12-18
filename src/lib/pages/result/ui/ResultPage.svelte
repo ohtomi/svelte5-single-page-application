@@ -1,6 +1,6 @@
 <script lang="ts">
 import { SiteHeader } from "$lib/widgets/site-header";
-import { Searcher } from "$lib/widgets/searcher";
+import { SearchForm } from "$lib/widgets/search-form";
 import {
 	type SearchRepositoriesResult,
 	SearchResult,
@@ -16,6 +16,6 @@ let { value, q }: Props = $props();
 
 <SiteHeader/>
 
-<Searcher {q}/>
+<SearchForm {q}/>
 
 <SearchResult totalCount={value.totalCount} repositories={value.repositories} options={value.options}/>

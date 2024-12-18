@@ -1,6 +1,6 @@
 <script lang="ts">
 import { SiteHeader } from "$lib/widgets/site-header";
-import { Searcher } from "$lib/widgets/searcher";
+import { SearchForm } from "$lib/widgets/search-form";
 import { type SearchRepositoriesInitial } from "$lib/widgets/search-repositories";
 
 type Props = {
@@ -12,4 +12,4 @@ let { q }: Props = $props();
 
 <SiteHeader/>
 
-<Searcher {q}/>
+<SearchForm {q}/>

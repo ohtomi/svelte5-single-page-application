@@ -38,11 +38,3 @@ const isToStringer = (cause: unknown): cause is ToStringer => {
 export class ValidationError extends Error {
 	name = "ValidationError";
 }
-
-export class SearchRepositoriesApiError extends Error {
-	name = "SearchRepositoriesApiError";
-}
-
-export const toSearchRepositoriesApiError = errorWithCause(
-	SearchRepositoriesApiError,
-);

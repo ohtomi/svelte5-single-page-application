@@ -12,10 +12,13 @@ import {
 	joinAllElements,
 	listAllElements,
 	type NotUndefined,
-	type SearchRepositoriesApiError,
-	toSearchRepositoriesApiError,
 	ValidationError,
 } from "$lib/shared";
+
+import {
+	type SearchRepositoriesApiError,
+	toSearchRepositoriesApiError,
+} from "../model/errors";
 
 type SearchResult = {
 	totalCount: number;

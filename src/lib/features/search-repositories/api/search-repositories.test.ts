@@ -9,7 +9,7 @@ import {
 } from "vitest";
 import { Result } from "neverthrow";
 
-import { SearchRepositoriesApiError, ValidationError } from "$lib/shared";
+import { ValidationError } from "$lib/shared";
 
 import {
 	asOrderOption,
@@ -19,6 +19,7 @@ import {
 	asSortOption,
 	searchRepositories,
 } from "./search-repositories";
+import { SearchRepositoriesApiError } from "../model/errors";
 import { githubServer } from "./mocks";
 import { ng401, slowOk200 } from "./mocks/github-search-repositories";
 

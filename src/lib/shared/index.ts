@@ -6,11 +6,7 @@ export {
 	type UnArray,
 	type UnResultOk,
 } from "./model/values";
-export {
-	SearchRepositoriesApiError,
-	toSearchRepositoriesApiError,
-	ValidationError,
-} from "./model/errors";
+export { errorWithCause, ValidationError } from "./model/errors";
 
 export { default as ExternalLinkIcon } from "./ui/ExternalLinkIcon.svelte";
 export { default as EyeIcon } from "./ui/EyeIcon.svelte";

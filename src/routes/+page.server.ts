@@ -8,5 +8,11 @@ type InvokeSearchRepositoriesReturn = Awaited<
 export const load: PageServerLoad = async ({
 	url,
 }): Promise<InvokeSearchRepositoriesReturn> => {
-	return invokeSearchRepositories(url.searchParams);
+	return invokeSearchRepositories({
+		q: url.searchParams.get("q"),
+		sort: url.searchParams.get("sort"),
+		order: url.searchParams.get("order"),
+		per_page: url.searchParams.get("per_page"),
+		page: url.searchParams.get("page"),
+	});
 };

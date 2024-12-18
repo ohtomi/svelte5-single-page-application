@@ -37,14 +37,22 @@ export type SearchRepositoriesError = {
 	q: string;
 };
 
+type SearchRepositoriesCommand = {
+	q: string | null;
+	sort: string | null;
+	order: string | null;
+	per_page: string | null;
+	page: string | null;
+};
+
 export const invokeSearchRepositories = async (
-	searchParams: URLSearchParams,
+	command: SearchRepositoriesCommand,
 ): Promise<SearchRepositoriesInvocation> => {
-	const q = searchParams.get("q") || undefined;
-	const sort = searchParams.get("sort") || undefined;
-	const order = searchParams.get("order") || undefined;
-	const per_page = searchParams.get("per_page") || undefined;
-	const page = searchParams.get("page") || undefined;
+	const q = command.q || undefined;
+	const sort = command.sort || undefined;
+	const order = command.order || undefined;
+	const per_page = command.per_page || undefined;
+	const page = command.page || undefined;
 
 	if (!q) {
 		return {

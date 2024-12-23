@@ -1,4 +1,12 @@
 export {
+	asQOption,
+	asSortOption,
+	asOrderOption,
+	asPerPageOption,
+	asPageOption,
+} from "$lib/widgets/search-repositories/api/search-repositories";
+
+export {
 	invokeSearchRepositories,
 	type SearchRepositoriesError,
 	type SearchRepositoriesInitial,

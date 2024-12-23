@@ -1,8 +1,17 @@
 <script module lang="ts">
 import { defineMeta } from "@storybook/addon-svelte-csf";
 import { expect, userEvent, within } from "@storybook/test";
+import { ok, Result } from "neverthrow";
 
 import { ResultPage } from "$lib/pages/result";
+import {
+	asOrderOption,
+	asPageOption,
+	asPerPageOption,
+	asQOption,
+	asSortOption,
+	type SearchRepositoriesResult,
+} from "$lib/widgets/search-repositories";
 
 import { makeGotoDummy } from "./dummies";
 
@@ -61,19 +70,36 @@ const repositories = [
 	},
 ];
 
-const options = {
-	q: "svelte",
-	sort: undefined,
-	order: undefined,
-	per_page: undefined,
-	page: 1,
+const makeOptions = () => {
+	const options = Result.combine([
+		asQOption("svelte"),
+		asSortOption(undefined),
+		asOrderOption(undefined),
+		asPerPageOption(undefined),
+		asPageOption(1),
+	]).andThen(([q, sort, order, per_page, page]) => {
+		return ok({
+			q,
+			sort,
+			order,
+			per_page,
+			page,
+		});
+	});
+	// 必ず成功するので、ねんのためassertしておく
+	if (options.isErr()) {
+		throw new Error();
+	}
+	return options._unsafeUnwrap();
 };
+
+const options = makeOptions();
 
 const result = {
 	totalCount: 73189,
 	repositories,
 	options,
-};
+} satisfies SearchRepositoriesResult["value"];
 </script>
 
 <Story name="初期表示"

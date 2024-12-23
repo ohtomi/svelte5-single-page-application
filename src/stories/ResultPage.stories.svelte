@@ -98,7 +98,8 @@ const result = {
     await expect(searchInput).toBeInTheDocument();
     await userEvent.clear(searchInput);
     await userEvent.type(searchInput, "jquery");
-    await userEvent.keyboard("{enter}");
+    const searchButton = canvas.getByRole("button", { name: /Search/i });
+    await userEvent.click(searchButton);
 
     await expect(goto?.spy?.[0]?.parameters?.[0]).toBe("/?q=jquery");
   }}
@@ -112,8 +113,7 @@ const result = {
     await expect(searchInput).toBeInTheDocument();
     await userEvent.clear(searchInput);
     await userEvent.type(searchInput, "jquery");
-    const searchButton = canvas.getByRole("button", { name: /Search/i });
-    await userEvent.click(searchButton);
+    await userEvent.keyboard("{enter}");
 
     await expect(goto?.spy?.[0]?.parameters?.[0]).toBe("/?q=jquery");
   }}

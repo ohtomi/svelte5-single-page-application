@@ -27,7 +27,8 @@ const { Story } = defineMeta({
     const searchInput = canvas.getByPlaceholderText("Search keyword");
     await expect(searchInput).toBeInTheDocument();
     await userEvent.type(searchInput, "svelte");
-    await userEvent.keyboard("{enter}");
+    const searchButton = canvas.getByRole("button", { name: /Search/i });
+    await userEvent.click(searchButton);
 
     await expect(goto?.spy?.[0]?.parameters?.[0]).toBe("/?q=svelte");
   }}
@@ -38,8 +39,7 @@ const { Story } = defineMeta({
     const searchInput = canvas.getByPlaceholderText("Search keyword");
     await expect(searchInput).toBeInTheDocument();
     await userEvent.type(searchInput, "svelte");
-    const searchButton = canvas.getByRole("button", { name: /Search/i });
-    await userEvent.click(searchButton);
+    await userEvent.keyboard("{enter}");
 
     await expect(goto?.spy?.[0]?.parameters?.[0]).toBe("/?q=svelte");
   }}

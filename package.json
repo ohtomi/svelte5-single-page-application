@@ -28,7 +28,7 @@
 		"@storybook/test": "^8.4.7",
 		"@sveltejs/adapter-auto": "^3.3.1",
 		"@sveltejs/kit": "^2.15.0",
-		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@sveltejs/vite-plugin-svelte": "^4.0.4",
 		"autoprefixer": "^10.4.20",
 		"msw": "^2.7.0",
 		"neverthrow": "^8.1.1",

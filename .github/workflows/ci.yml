@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: num run build
+      - run: npm run build
       - run: npm run check
       - run: npm run biome:lint
 
